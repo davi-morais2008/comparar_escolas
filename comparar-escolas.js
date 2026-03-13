@@ -87,7 +87,6 @@ const instanciarB = () => {
     return new Senai(codigoB, cidadeB, anoB, cursosB)
   }
 
-
 };
 btnInstanciarB.addEventListener('click', () => unidadeB = instanciarB())
 
@@ -137,17 +136,31 @@ btnFecharB.addEventListener('click', () => {
   mensagemB.textContent = 'Escola fechada'
 });
 
+
+
 /* ===== RELATÓRIO DE COMPARAÇÃO ===== */
 const compararEscolas = (e1, e2) => {
   relatorio.style.display = 'flex';
-  if(e1.qtdeCursos > e2.qtdeCursos){
-    relatorioVeredito.innerHTML = `${e1} lidera com ${e1.qtdeCursos} cursos.`
-  } else if (e2.qtdeCursos > e1.qtdeCursos){
+  if(e1.qtDCursos > e2.qnDCursos){
+    relatorioVeredito.innerHTML = `${e1} lidera com ${e1.qtDCursos} cursos.`
+  } else if (e2.qtDCursos > e1.qtDCursos){
     relatorioVeredito.innerHTML = `${e2} lidera com ${e2.qtdeCursos} cursos.`
   } else {
     relatorioVeredito.innerHTML = `Ambas as unidades possuem a mesma quantidade de cursos.`
   }
+
+  relatorioLinhaA.innerHTML = `Unidade A
+  Código ${e1.codigo} - Cidade ${e1.cidade}
+  Fundação ${ano} (${e1.idade})
+  Oferta ${e1.qtDCursos} cursos`
+
+  relatorioLinhaB.innerHTML = `Unidade B
+  Código ${e2.codigo} - Cidade ${e2.cidade}
+  Fundação ${ano} (${e2.idade})
+  Oferta ${e2.qtDCursos} cursos`
 };
+
 
 btnComparar.addEventListener('click', compararEscolas(unidadeA, unidadeB))
 /* ===== NOVA CONSULTA ===== */
+
